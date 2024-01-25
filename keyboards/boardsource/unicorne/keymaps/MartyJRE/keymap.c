@@ -31,7 +31,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     tap_dance_action_t *action;
 
     switch (keycode) {
-        case TD(CT_CLN):  // list all tap dance keycodes with tap-hold configurations
+        case TD(TD_Y):
+        case TD(TD_ESC):
+        case TD(TD_D):
+        case TD(TD_F):
+        case TD(TD_G):
+        case TD(TD_H):
+        case TD(TD_J):
+        case TD(TD_K):
+        case TD(TD_N):
+        case TD(TD_T_C):
+        case TD(TD_E_S):
             action = &tap_dance_actions[TD_INDEX(keycode)];
             if (!record->event.pressed && action->state.count && !action->state.finished) {
                 tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
@@ -87,7 +97,7 @@ tap_dance_action_t tap_dance_actions[] = {
     // J/)
     [TD_J] = ACTION_TAP_DANCE_TAP_HOLD(KC_J, S(KC_0)),
     // K/]
-    [TD_K] = ACTION_TAP_DANCE_TAP_HOLD(KC_K, S(KC_RBRC)),k
+    [TD_K] = ACTION_TAP_DANCE_TAP_HOLD(KC_K, S(KC_RBRC)),
     // N/Win
     [TD_N] = ACTION_TAP_DANCE_TAP_HOLD(KC_N, KC_LGUI),
     // Tab/Ctrl
@@ -99,7 +109,7 @@ tap_dance_action_t tap_dance_actions[] = {
 // @see https://github.com/MartyJRE/zmk-config-corne/blob/main/config/corne.keymap
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x6_3(
-        KC_DEL, KC_Q, LCTL_T(KC_W), KC_E, LCTL_T(R), LCTL_T(KC_T), TD(TD_Y), KC_U, KC_I, KC_O, KC_P, KC_BSLS,
+        KC_DEL, KC_Q, LCTL_T(KC_W), KC_E, LCTL_T(KC_R), LCTL_T(KC_T), TD(TD_Y), KC_U, KC_I, KC_O, KC_P, KC_BSLS,
         TD(TD_ESC), LCTL_T(KC_A), LCTL_T(KC_S), TD(TD_D), TD(TD_F), TD(TD_G), TD(TD_H), TD(TD_J), TD(TD_K), KC_L, KC_SCLN, KC_QUOT,
         KC_LSFT, LCTL_T(KC_Z), LCTL_T(KC_X), LCTL_T(KC_C), LCTL_T(KC_V), LCTL_T(KC_B), TD(TD_N), LCTL_T(KC_M), KC_COMM, KC_DOT, LCTL_T(KC_SLSH), KC_RSFT,
         MO(_NUMBERS), KC_SPC, KC_BSPC, TD(TD_T_C), TD(TD_E_S), MO(_SYMBOLS)

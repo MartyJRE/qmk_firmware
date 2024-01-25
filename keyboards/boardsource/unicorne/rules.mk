@@ -1,6 +1,6 @@
 SERIAL_DRIVER = vendor
 AUDIO_DRIVER = pwm_hardware
 POINTING_DEVICE_DRIVER = analog_joystick
-TAP_DANCE_ENABLED = yes
+TAP_DANCE_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 TRI_LAYER_ENABLE = yes
