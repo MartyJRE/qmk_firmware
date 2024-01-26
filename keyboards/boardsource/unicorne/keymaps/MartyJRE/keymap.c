@@ -174,21 +174,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TL_LOWR, KC_SPC, KC_BSPC, TD(TD_T_C), TD(TD_E_S), TL_UPPR
     ),
     [_NUMBERS] = LAYOUT_split_3x6_3(
-        _______, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, _______,
-        _______, _______, _______, KC_GRAVE, KC_EQUAL, _______, _______, KC_MINUS, KC_UP, _______, _______, _______,
-    _______, _______, _______, _______, _______, TD(TD_B_2), _______, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______,
-        _______, _______, _______, _______, _______, _______
+        KC_TRNS, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_GRAVE, KC_EQUAL, KC_TRNS, KC_TRNS, KC_MINUS, KC_UP, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TD(TD_B_2), KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
     [_SYMBOLS] = LAYOUT_split_3x6_3(
-        _______, S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5), S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0), _______,
-        _______, _______, _______, _______, KC_LGUI, _______, _______, KC_MEH, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______
+        KC_TRNS, S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5), S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0), KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LGUI, KC_TRNS, KC_TRNS, KC_MEH, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
     [_SYSTEM] = LAYOUT_split_3x6_3(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, KC_LALT, LALT(LCTL(KC_LEFT)), LALT(LCTL(KC_RIGHT)), KC_TAB, _______, LALT(KC_ENTER), LALT(S(KC_ENTER)), _______,
-        _______, _______, _______, QK_CAPS_WORD_TOGGLE, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LALT, LALT(LCTL(KC_LEFT)), LALT(LCTL(KC_RIGHT)), KC_TAB, KC_TRNS, LALT(KC_ENTER), LALT(S(KC_ENTER)), KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, QK_CAPS_WORD_TOGGLE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     )
 };
