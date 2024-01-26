@@ -69,7 +69,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case TD(TD_C):
         case TD(TD_V):
         case TD(TD_B):
-        case TD(TD_B_2):
         case TD(TD_N):
         case TD(TD_M):
         case TD(TD_T_C):
@@ -111,6 +110,18 @@ void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data) {
     }
 }
 
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case TD(TD_T_C):
+        case TD(TD_E_S):
+            // Immediately select the hold action when another key is tapped.
+            return true;
+        default:
+            // Do not select the hold action when another key is tapped.
+            return false;
+    }
+}
+
 #define ACTION_TAP_DANCE_TAP_HOLD(tap, hold) \
     { .fn = {NULL, tap_dance_tap_hold_finished, tap_dance_tap_hold_reset}, .user_data = (void *)&((tap_dance_tap_hold_t){tap, hold, 0}), }
 
@@ -139,8 +150,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_V] = ACTION_TAP_DANCE_TAP_HOLD(KC_V, LCTL(KC_V)),
     // B/Ctrl B
     [TD_B] = ACTION_TAP_DANCE_TAP_HOLD(KC_B, LCTL(KC_B)),
-    // B/Ctrl Alt B
-    [TD_B_2] = ACTION_TAP_DANCE_TAP_HOLD(KC_B, LCTL(LALT(KC_B))),
     // D/[
     [TD_D] = ACTION_TAP_DANCE_TAP_HOLD(KC_D, KC_LBRC),
     // F/(
@@ -176,7 +185,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NUMBERS] = LAYOUT_split_3x6_3(
         KC_TRNS, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_GRAVE, KC_EQUAL, KC_TRNS, KC_TRNS, KC_MINUS, KC_UP, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, TD(TD_B_2), KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LCTL(LALT(KC_B)), KC_TRNS, KC_LEFT, KC_DOWN, KC_RIGHT, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
     [_SYMBOLS] = LAYOUT_split_3x6_3(
